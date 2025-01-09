@@ -1075,8 +1075,7 @@ module.exports = grammar({
  *
  * @param {RuleOrLiteral} separator
  *
- * @return {SeqRule}
- *
+ * @returns {SeqRule}
  */
 function sep1(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)));
@@ -1085,12 +1084,12 @@ function sep1(rule, separator) {
 /**
  * Creates a rule to optionally match one or more of the rules separated by `separator`
  * and optionally ending with `separator`
+ *
  * @param {RuleOrLiteral} rule
  *
  * @param {RuleOrLiteral} separator
  *
- * @return {ChoiceRule}
- *
+ * @returns {ChoiceRule}
  */
 function optionalSep1(rule, separator) {
   return optional(seq(rule, repeat(seq(separator, rule)), optional(separator)));
@@ -1101,8 +1100,7 @@ function optionalSep1(rule, separator) {
  *
  * @param {Rule} rule
  *
- * @return {ChoiceRule}
- *
+ * @returns {ChoiceRule}
  */
 function commaSep(rule) {
   return optional(commaSep1(rule));
@@ -1113,8 +1111,7 @@ function commaSep(rule) {
  *
  * @param {Rule} rule
  *
- * @return {SeqRule}
- *
+ * @returns {SeqRule}
  */
 function commaSep1(rule) {
   return seq(rule, repeat(seq(',', rule)));
@@ -1126,8 +1123,7 @@ function commaSep1(rule) {
  *
  * @param {Rule} rule
  *
- * @return {ChoiceRule}
- *
+ * @returns {ChoiceRule}
  */
 function optionalCommaSep1(rule) {
   return optional(seq(rule, repeat(seq(',', rule)), optional(',')));
