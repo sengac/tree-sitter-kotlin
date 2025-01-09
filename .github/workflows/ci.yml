@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["*"]
+    branches: [master]
     paths:
       - grammar.js
       - src/**
@@ -32,8 +32,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set up the repo
+      - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v1
+      - name: Run tests
+        uses: tree-sitter/parser-test-action@v2
+        with:
+          test-rust: true
+          test-node: true
+          test-python: true
+          test-go: true
+          test-swift: true
       - name: Set up examples
         run: |-
           git clone https://github.com/pinterest/ktlint            examples/ktlint --single-branch --depth=1 --filter=blob:none
@@ -42,10 +50,6 @@ jobs:
           git clone https://github.com/mockk/mockk                 examples/mockk --single-branch --depth=1 --filter=blob:none
           git clone https://github.com/oss-review-toolkit/ort      examples/ort --single-branch --depth=1 --filter=blob:none
           git clone https://github.com/getsentry/sentry-java       examples/sentry-java --single-branch --depth=1 --filter=blob:none
-      - name: Run tests
-        uses: tree-sitter/parser-test-action@v2
-        with:
-          test-rust: ${{runner.os == 'Linux'}}
       - name: Parse examples
         uses: tree-sitter/parse-action@v4
         with:
@@ -53,3 +57,4 @@ jobs:
             examples/**/*.kt
             !examples/ktlint/ktlint-cli/src/main/kotlin/com/pinterest/ktlint/cli/internal/KtlintCommandLine.kt
             !examples/ort/model/src/main/kotlin/ResolvedConfiguration.kt
+            !examples/ort/plugins/api/src/main/kotlin/OrtPluginOption.kt
