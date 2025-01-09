@@ -13,26 +13,24 @@ class Foo {
 ---
 
 (source_file
-  (statement
-    (class_declaration
-      (identifier)
-      (class_body
-        (property_declaration
-          (variable_declaration
-            (identifier)
-            (user_type
-              (identifier)))
-          (getter
-            (function_body
-              (number_literal)))
-          (setter
-            (identifier)
-            (function_body
-              (block
-                (statement
-                  (assignment
-                    (identifier)
-                    (identifier)))))))))))
+  (class_declaration
+    (identifier)
+    (class_body
+      (property_declaration
+        (variable_declaration
+          (identifier)
+          (user_type
+            (identifier)))
+        (getter
+          (function_body
+            (number_literal)))
+        (setter
+          (identifier)
+          (function_body
+            (block
+              (assignment
+                (identifier)
+                (identifier)))))))))
 
 ==============================================
 Modifiers with Getter and Setter on a new line
@@ -50,34 +48,32 @@ class Foo {
 ---
 
 (source_file
-  (statement
-    (class_declaration
-      (identifier)
-      (class_body
-        (property_declaration
-          (modifiers
-            (annotation
-              (user_type
-                (identifier))))
-          (variable_declaration
-            (identifier)
+  (class_declaration
+    (identifier)
+    (class_body
+      (property_declaration
+        (modifiers
+          (annotation
             (user_type
-              (identifier)))
-          (getter
-            (modifiers
-              (visibility_modifier))
-            (function_body
-              (number_literal)))
-          (setter
-            (modifiers
-              (visibility_modifier))
-            (identifier)
-            (function_body
-              (block
-                (statement
-                  (assignment
-                    (identifier)
-                    (identifier)))))))))))
+              (identifier))))
+        (variable_declaration
+          (identifier)
+          (user_type
+            (identifier)))
+        (getter
+          (modifiers
+            (visibility_modifier))
+          (function_body
+            (number_literal)))
+        (setter
+          (modifiers
+            (visibility_modifier))
+          (identifier)
+          (function_body
+            (block
+              (assignment
+                (identifier)
+                (identifier)))))))))
 
 ==========================
 A variable called set
@@ -93,42 +89,37 @@ fun test() {
 ---
 
 (source_file
-  (statement
-    (function_declaration
-      (identifier)
-      (function_value_parameters)
-      (function_body
-        (block
-          (statement
-            (property_declaration
-              (variable_declaration
-                (identifier))
-              (call_expression
-                (identifier)
-                (value_arguments))))
-          (statement
-            (call_expression
-              (navigation_expression
-                (identifier)
-                (identifier))
-              (value_arguments
-                (value_argument
-                  (number_literal)))))
-          (statement
-            (property_declaration
-              (variable_declaration
-                (identifier))
-              (index_expression
-                (identifier)
-                (number_literal))))
-          (statement
-            (call_expression
-              (identifier)
-              (value_arguments
-                (value_argument
-                  (identifier))
-                (value_argument
-                  (identifier))))))))))
+  (function_declaration
+    (identifier)
+    (function_value_parameters)
+    (function_body
+      (block
+        (property_declaration
+          (variable_declaration
+            (identifier))
+          (call_expression
+            (identifier)
+            (value_arguments)))
+        (call_expression
+          (navigation_expression
+            (identifier)
+            (identifier))
+          (value_arguments
+            (value_argument
+              (number_literal))))
+        (property_declaration
+          (variable_declaration
+            (identifier))
+          (index_expression
+            (identifier)
+            (number_literal)))
+        (call_expression
+          (identifier)
+          (value_arguments
+            (value_argument
+              (identifier))
+            (value_argument
+              (identifier))))))))
 
 ===================================
 A variable called constructor
@@ -142,25 +133,22 @@ fun Foo() {
 ---
 
 (source_file
-  (statement
-    (function_declaration
-      (identifier)
-      (function_value_parameters)
-      (function_body
-        (block
-          (statement
-            (property_declaration
-              (variable_declaration
-                (identifier))
-              (call_expression
-                (identifier)
-                (value_arguments))))
-          (statement
-            (call_expression
-              (navigation_expression
-                (identifier)
-                (identifier))
-              (value_arguments))))))))
+  (function_declaration
+    (identifier)
+    (function_value_parameters)
+    (function_body
+      (block
+        (property_declaration
+          (variable_declaration
+            (identifier))
+          (call_expression
+            (identifier)
+            (value_arguments)))
+        (call_expression
+          (navigation_expression
+            (identifier)
+            (identifier))
+          (value_arguments))))))
 
 ==================================
 Primary Constructor on a newline
@@ -175,22 +163,21 @@ public class Foo
 ---
 
 (source_file
-  (statement
-    (class_declaration
+  (class_declaration
+    (modifiers
+      (visibility_modifier))
+    (identifier)
+    (primary_constructor
       (modifiers
-        (visibility_modifier))
-      (identifier)
-      (primary_constructor
-        (modifiers
-          (annotation
-            (user_type
-              (identifier))))
-        (class_parameters
-          (class_parameter
-            (identifier)
-            (user_type
-              (identifier))
-            (number_literal)))))))
+        (annotation
+          (user_type
+            (identifier))))
+      (class_parameters
+        (class_parameter
+          (identifier)
+          (user_type
+            (identifier))
+          (number_literal))))))
 
 ====================================
 Secondary Constructor on a newline
@@ -204,30 +191,29 @@ class Foo(bar: Int) {
 ---
 
 (source_file
-  (statement
-    (class_declaration
-      (identifier)
-      (primary_constructor
-        (class_parameters
-          (class_parameter
-            (identifier)
-            (user_type
-              (identifier)))))
-      (class_body
-        (property_declaration
-          (variable_declaration
-            (identifier)
-            (user_type
-              (identifier))))
-        (secondary_constructor
-          (modifiers
-            (visibility_modifier))
-          (function_value_parameters)
-          (constructor_delegation_call
-            (value_arguments
-              (value_argument
-                (unary_expression
-                  (number_literal))))))))))
+  (class_declaration
+    (identifier)
+    (primary_constructor
+      (class_parameters
+        (class_parameter
+          (identifier)
+          (user_type
+            (identifier)))))
+    (class_body
+      (property_declaration
+        (variable_declaration
+          (identifier)
+          (user_type
+            (identifier))))
+      (secondary_constructor
+        (modifiers
+          (visibility_modifier))
+        (function_value_parameters)
+        (constructor_delegation_call
+          (value_arguments
+            (value_argument
+              (unary_expression
+                (number_literal)))))))))
 
 ================================================
 Comment after an annotation on the same line
@@ -243,25 +229,24 @@ class Foo {
 ---
 
 (source_file
-  (statement
-    (class_declaration
-      (identifier)
-      (class_body
-        (property_declaration
-          (variable_declaration
-            (identifier)
+  (class_declaration
+    (identifier)
+    (class_body
+      (property_declaration
+        (variable_declaration
+          (identifier)
+          (user_type
+            (identifier))))
+      (function_declaration
+        (modifiers
+          (annotation
             (user_type
               (identifier))))
-        (function_declaration
-          (modifiers
-            (annotation
-              (user_type
-                (identifier))))
-          (line_comment)
-          (identifier)
-          (function_value_parameters)
-          (function_body
-            (block)))))))
+        (line_comment)
+        (identifier)
+        (function_value_parameters)
+        (function_body
+          (block))))))
 
 =========================================
 Else after newline
@@ -275,27 +260,25 @@ fun test() {
 ---
 
 (source_file
-  (statement
-    (function_declaration
-      (identifier)
-      (function_value_parameters)
-      (function_body
-        (block
-          (statement
-            (if_expression
-              (identifier)
-              (call_expression
-                (identifier)
-                (value_arguments
-                  (value_argument
-                    (string_literal
-                      (string_content)))))
-              (call_expression
-                (identifier)
-                (value_arguments
-                  (value_argument
-                    (string_literal
-                      (string_content))))))))))))
+  (function_declaration
+    (identifier)
+    (function_value_parameters)
+    (function_body
+      (block
+        (if_expression
+          (identifier)
+          (call_expression
+            (identifier)
+            (value_arguments
+              (value_argument
+                (string_literal
+                  (string_content)))))
+          (call_expression
+            (identifier)
+            (value_arguments
+              (value_argument
+                (string_literal
+                  (string_content))))))))))
 
 =========================================
 ?. split by a newline
@@ -310,18 +293,16 @@ fun test() {
 ---
 
 (source_file
-  (statement
-    (function_declaration
-      (identifier)
-      (function_value_parameters)
-      (function_body
-        (block
-          (statement
-            (property_declaration
-              (variable_declaration
-                (identifier))
-              (navigation_expression
-                (navigation_expression
-                  (identifier)
-                  (identifier))
-                (identifier)))))))))
+  (function_declaration
+    (identifier)
+    (function_value_parameters)
+    (function_body
+      (block
+        (property_declaration
+          (variable_declaration
+            (identifier))
+          (navigation_expression
+            (navigation_expression
+              (identifier)
+              (identifier))
+            (identifier)))))))

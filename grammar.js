@@ -104,6 +104,7 @@ module.exports = grammar({
     $.expression,
     $.primary_expression,
     $.type,
+    $.statement,
   ],
 
   word: $ => $.identifier,
