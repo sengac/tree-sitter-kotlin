@@ -105,6 +105,7 @@ module.exports = grammar({
     $.primary_expression,
     $.type,
     $.statement,
+    $.literal_constant,
   ],
 
   word: $ => $.identifier,
@@ -629,14 +630,9 @@ module.exports = grammar({
 
     primary_expression: $ => choice(
       $._identifier,
-      $.string_literal,
-      $.multiline_string_literal,
-      $.character_literal,
-      $.number_literal,
-      $.float_literal,
       $.object_literal,
       $.collection_literal,
-      $.boolean_literal,
+      $.literal_constant,
       $.navigation_expression,
       $.binary_expression,
       $.unary_expression,
@@ -938,6 +934,15 @@ module.exports = grammar({
       'object',
       optional(seq(':', $.delegation_specifiers)),
       $.class_body,
+    ),
+
+    literal_constant: $ => choice(
+      $.boolean_literal,
+      $.number_literal,
+      $.float_literal,
+      $.character_literal,
+      $.string_literal,
+      $.multiline_string_literal,
     ),
 
     string_literal: $ => seq(
