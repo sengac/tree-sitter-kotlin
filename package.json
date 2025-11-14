@@ -1,8 +1,8 @@
 {
   "name": "@sengac/tree-sitter-kotlin",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Kotlin grammar for tree-sitter",
-  "repository": "https://github.com/tree-sitter-grammars/tree-sitter-kotlin",
+  "repository": "https://github.com/sengac/tree-sitter-kotlin",
   "license": "MIT",
   "author": {
     "name": "Amaan Qureshi",
@@ -38,7 +38,7 @@
     "tree-sitter-cli": "^0.24.6"
   },
   "peerDependencies": {
-    "@sengac/tree-sitter": "^0.25.8"
+    "@sengac/tree-sitter": "^0.25.10"
   },
   "peerDependenciesMeta": {
     "@sengac/tree-sitter": {
