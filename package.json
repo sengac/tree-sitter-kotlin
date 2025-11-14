@@ -1,6 +1,6 @@
 {
   "name": "@sengac/tree-sitter-kotlin",
-  "version": "0.4.5",
+  "version": "0.25.12",
   "description": "Kotlin grammar for tree-sitter",
   "repository": "https://github.com/sengac/tree-sitter-kotlin",
   "license": "MIT",
