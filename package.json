@@ -1,6 +1,6 @@
 {
   "name": "@sengac/tree-sitter-kotlin",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Kotlin grammar for tree-sitter",
   "repository": "https://github.com/tree-sitter-grammars/tree-sitter-kotlin",
   "license": "MIT",
@@ -38,10 +38,10 @@
     "tree-sitter-cli": "^0.24.6"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.25.0"
+    "@sengac/tree-sitter": "^0.25.6"
   },
   "peerDependenciesMeta": {
-    "tree-sitter": {
+    "@sengac/tree-sitter": {
       "optional": true
     }
   },
